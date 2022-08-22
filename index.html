@@ -2,32 +2,57 @@
 <html>
     <head>
         <title>Treasure Hunt</title>
+        <meta charset="UTF-8">
         <link rel="stylesheet" href="./style.css">
-        <script src="/app.js"></script>
+        <script src="./app.js"></script>
     </head>
     <body>
-        <h1>Treasure hunt</h1>
-        <div id="container">
+        <h1>Treasure Hunt</h1>
+        <div id="firstrow">
             <div>
                 <form>
                     <label>Select Category</label>
-                    <select>
+                    <select id="category">
                         <option value = 'Dog'>Dog</option>
-                        <option value = 'Dog'>Cat</option>
-                        <option value = 'Dog'>Bird</option>
-                        <option value = 'Dog'>Monkey</option>
-                        <option value = 'Dog'>Cake</option>
+                        <option value = 'Cat'>Cat</option>
+                        <option value = 'Bird'>Bird</option>
+                        <option value = 'Monkey'>Monkey</option>
+                        <option value = 'Cake'>Cake</option>
                     </select>
                 </form>
             </div>
+            <div class="space">    </div>
             <div id="input">
                 <input id="playerOneName" placeholder="Play 1 name....">
                 <input id="playerTwoName" placeholder="Play 2 name....">
             </div>
+            <div class="space">    </div>
             <div id="btnContainer">
                 <button id="start">Start</button>
                 <button id="reset">Reset</button>
             </div>
+        </div>
+        <div id="secondrow">
+            <div class="scoreboard">
+                <div id="scoretitle">Scoreboard</div>
+                <div id="playerOneScore"></div>
+                <div id="playerTwoScore"></div>
+            </div>
+            <div id="gameboard"></div>
+            <div id="instruction">Instruction: 
+                <ul>
+                    <li>Select a category </li>
+                    <li>Put your and your opponent's name in the boxes</li>
+                    <li>Click start to play</li>
+                    <li>Take turns to click the square to reveal the emoji</li>
+                    <li>Find an emoji in the category to score points</li>
+                    <li>When all squares are revealed, the player having the higher points is the winner</li>
+                </ul>
+            
+            </div>
+        </div>
+        <div id="thirdrow">
+            Follow instruction and start the game!
         </div>
        
     </body>
