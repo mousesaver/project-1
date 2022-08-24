@@ -48,3 +48,20 @@ document.addEventListener('DOMContentLoaded', () => {
         playerTwoScore.innerText = `${playerTwo.name}'s score: ` + '0';
         
     })
+    reset.addEventListener('click', function(e) {
+        playerOneTurn = true;
+        squareClickable = [ ];
+        playerOne = null;
+        playerTwo = null;
+        stepCount = 0;
+        gameboardInit(8, 8)
+        startclickable = true;
+        playerOneScore.innerText = ' ';
+        playerTwoScore.innerText = ' ';
+        output.innerText = 'Follow instruction and start the game!'
+        playerOneName.value = '';
+        playerTwoName.value = '';
+        playerOneScore.style.backgroundColor = 'white'
+        playerTwoScore.style.backgroundColor = 'white'
+
+    })
