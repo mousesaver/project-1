@@ -71,6 +71,12 @@ document.addEventListener('DOMContentLoaded', () => {
         return emojiCollection[i][j];
 
     }
+    function clickable(row, column) {
+        for (let i = 0; i < row * column; i++) {
+            squareClickable.push(true);
+        }
+    }
+
 
     function gameboardInit(row, column) {
         const gameboard = document.querySelector('#gameboard');
