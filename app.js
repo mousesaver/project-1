@@ -71,3 +71,45 @@ document.addEventListener('DOMContentLoaded', () => {
         return emojiCollection[i][j];
 
     }
+
+    function gameboardInit(row, column) {
+        const gameboard = document.querySelector('#gameboard');
+        while(gameboard.firstChild) {
+            gameboard.removeChild(gameboard.firstChild);
+        }
+        for (let i = 0; i < row; i++) {
+            for (let j = 0; j < column; j++) {
+                const div = document.createElement('div');
+                div.innerText = emojiSelector();
+                div.classList.add('square');
+                div.addEventListener('click', function(e) {
+                    if (squareClickable[i * column + j] === true) {
+                        e.target.style.fontSize = '40px';
+                        if (playerOneTurn) {
+                            e.target.style.backgroundColor = 'blue';
+                            score(category, e.target.innerText, playerOne)
+                            playerOneScore.innerText = `${playerOne.name}'s score: ${playerOne.score}`;
+                            playerTwoScore.innerText = `${playerTwo.name}'s score: ${playerTwo.score}`;
+                            output.innerText = `${playerTwo.name}'s turn!`
+                        } else {
+                            e.target.style.backgroundColor = 'green';
+                            score(category, e.target.innerText, playerTwo)
+                            playerTwoScore.innerText = `${playerTwo.name}'s score: ${playerTwo.score}`;
+                            output.innerText = `${playerOne.name}'s turn!`
+                        }
+                        playerOneTurn = !playerOneTurn;
+                        squareClickable[i * column + j] = false;
+                        stepCount++;
+                        if (stepCount === column * row) {
+                            gameOver();
+                        }
+                        if (playerTwo.name === 'Computer') {
+                            computerPlay(row, column, computerNameLevel[1]);
+                        }
+                        
+                    }   
+                })
+                gameboard.append(div);
+            }
+        }
+    }
