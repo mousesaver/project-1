@@ -65,3 +65,9 @@ document.addEventListener('DOMContentLoaded', () => {
         playerTwoScore.style.backgroundColor = 'white'
 
     })
+    function emojiSelector() {
+        let i = Math.floor(Math.random() * emojiCollection.length);
+        let j = Math.floor(Math.random() * emojiCollection[i].length)
+        return emojiCollection[i][j];
+
+    }
