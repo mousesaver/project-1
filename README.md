@@ -4,7 +4,7 @@
 
 Two players will compete to see who find more treasures. There are many categories to choose from. Once the category is selected, players have to click on squares alternatively to reveal what's hidden inside. If the item is in the right category, the corresponding player will score one point. When all squares have been revealed, the player with higher scores will be the winner and the game is over.
 
-## Tech Being Use
+## Tech Being Used
 
 - HTML
 - CSS
