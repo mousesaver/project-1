@@ -77,6 +77,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function score(category, emoji, player) {
+        if (category === 'Dog' && emoji === '🐶') {
+            player.score += 1;
+        } else if (category === 'Cat' && emoji === '🐱') {
+            player.score += 1;
+        } else if (category === 'Bird' && emoji === '🐧') {
+            player.score += 1;
+        } else if (category === 'Monkey' && emoji === '🐵') {
+            player.score += 1;
+        }else if (category === 'Cake' && emoji === '🎂') {
+            player.score += 1;
+        } else {
+            console.log('no point')
+        }
+    }
+
 
     function gameboardInit(row, column) {
         const gameboard = document.querySelector('#gameboard');
