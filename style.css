@@ -1,0 +1,22 @@
+@import url('http://fonts.cdnfonts.com/css/redkost-comic');
+@import url('http://fonts.cdnfonts.com/css/round-sans');
+@import url('http://fonts.cdnfonts.com/css/hellomissthang');
+body {
+    background-color: rgb(174, 250, 245);
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Redkost Comic', sans-serif;
+    color:rgb(106, 77, 173)
+}
+#firstrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100vw;
+    font-size: large;
+}
+.space {
+    width: 20px;
+}
