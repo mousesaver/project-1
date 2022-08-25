@@ -2,13 +2,14 @@
 @import url('http://fonts.cdnfonts.com/css/round-sans');
 @import url('http://fonts.cdnfonts.com/css/hellomissthang');
 body {
-    background-color: rgb(174, 250, 245);
+    background-color: rgb(204, 246, 242);
 }
 
 h1 {
     text-align: center;
     font-family: 'Redkost Comic', sans-serif;
-    color:rgb(106, 77, 173)
+    color:rgb(106, 77, 173);
+    font-size: 50px;
 }
 #firstrow {
     display: flex;
@@ -16,6 +17,7 @@ h1 {
     justify-content: center;
     width: 100vw;
     font-size: large;
+    font-family: 'Round sans', sans-serif;
 }
 .space {
     width: 20px;
@@ -61,7 +63,6 @@ h1 {
     height: 5vh;
     background-color: white;
     font-family: 'Round sans', sans-serif;
-    
 }
 #playerTwoScore {
     font-size: 1.6vw;
@@ -82,7 +83,7 @@ h1 {
     flex-wrap: wrap;
     width: 33.7vw;
     height: 33.7vw;
-    border: 3px solid orange;
+    border: 3px solid rgb(255, 170, 0);
     border-radius: 10px;
 
 }
@@ -99,19 +100,29 @@ h1 {
 #instruction {
     width: 25vw;
     text-align: justify;
-    color:rgb(71, 53, 53);
-    /* border: 3px solid blue;
-    border-radius: 10px; */
 }
 #instruction-title {
     text-align: center;
     font-family: 'HelloMissThang', sans-serif;
     font-weight: bold;
     font-size: 2vw;
+    color:rgb(6, 4, 106);
 }
 ul {
     font-family: 'HelloMissThang', sans-serif;
-    color:rgb(49, 46, 182);
-    font-weight: bold;
+    color:rgb(6, 4, 106);
+    font-weight: bolder;
     font-size: 1.3vw;
+}
+
+#thirdrow {
+    text-align: center;
+    font-size: 30px;
+    border: 3px solid green;
+    border-radius: 10px;
+    width: 60vw;
+    margin: 10px auto;
+    background-color: white;
+    font-family: 'Round sans', sans-serif;
+    padding: 10px;
 }
