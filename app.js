@@ -92,6 +92,17 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('no point')
         }
     }
+    function gameOver() {
+        if (playerOne.score > playerTwo.score) {
+            output.innerText = `Game Over! Congratulation to ${playerOne.name}!`;
+            playerOneScore.style.backgroundColor = 'red'
+        } else if (playerOne.score < playerTwo.score) {
+            output.innerText = `Game Over! Congratulation to ${playerTwo.name}!`;
+            playerTwoScore.style.backgroundColor = 'red'
+        } else {
+            output.innerText = `Game Over! It's a draw!`;
+        }
+    }
 
 
     function gameboardInit(row, column) {
