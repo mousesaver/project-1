@@ -11,7 +11,7 @@ Two players will compete to see who find more treasures. There are many categori
 - JavaScript (including OOP and DOM)
 
 ## Wireframe
-![Wirefra,e](Project%201.png)
+![Wirefra,e](Picture1.png)
 
 ## MVP Goals
 - Create the game screen layout
