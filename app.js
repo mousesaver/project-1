@@ -65,6 +65,29 @@ document.addEventListener('DOMContentLoaded', () => {
         playerTwoScore.style.backgroundColor = 'white'
 
     })
+
+    function scanGameBoard(category, row, column) {
+        let gameBoard = [];
+        let index = 0;
+        squares = document.querySelectorAll('.square');
+        while (index < column * row) {
+            if (category === 'Dog' && squares[index].innerText === '🐶') {
+                gameBoard.push(1);
+            } else if (category === 'Cat' && squares[index].innerText === '🐱') {
+                gameBoard.push(1);
+            } else if (category === 'Bird' && squares[index].innerText === '🐧') {
+                gameBoard.push(1);
+            } else if (category === 'Monkey' && squares[index].innerText === '🐵') {
+                gameBoard.push(1);
+            } else if (category === 'Cake' && squares[index].innerText === '🎂') {
+                gameBoard.push(1);
+            }else {
+                gameBoard.push(0);
+            }
+            index++;
+        }
+        return gameBoard;
+    }
     function computerPlay(row, column, level) {
         let index = Math.floor(Math.random() * (row * column));
         if ((level === '1' && Math.random() < 0.02) || (level === '2' && Math.random() < 0.04) || 
