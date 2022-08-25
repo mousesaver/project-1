@@ -65,6 +65,48 @@ document.addEventListener('DOMContentLoaded', () => {
         playerTwoScore.style.backgroundColor = 'white'
 
     })
+    function computerPlay(row, column, level) {
+        let index = Math.floor(Math.random() * (row * column));
+        if ((level === '1' && Math.random() < 0.02) || (level === '2' && Math.random() < 0.04) || 
+        (level === '3' && Math.random() < 0.06) || (level === '4' && Math.random() < 0.08) ||
+        (level === '5' && Math.random() < 0.1)) {
+            while (!squareClickable[index] || gameboard[index] !== 1) {
+                if (!squareClickable[index]) {
+                    gameboard[index] = 0;
+                    console.log("1: " + index);
+                }
+                index = gameboard.indexOf(1)
+                if (index === -1) {
+                    while (!squareClickable[index]) {
+                        index = Math.floor(Math.random() * (row * column));
+                    }
+                    break;
+                }
+                console.log("2: " + index);  
+            } 
+        } else {
+            while (!squareClickable[index]) {
+                index = Math.floor(Math.random() * (row * column));
+            }
+
+        }
+        setTimeout(function() {
+            squares = document.querySelectorAll('.square');
+            squares[index].style.fontSize = '40px';
+            squares[index].style.backgroundColor = 'green';
+            score(category, squares[index].innerText, playerTwo);
+            playerTwoScore.innerText = `${playerTwo.name}'s score: ${playerTwo.score}`;
+            output.innerText = `${playerOne.name}'s turn!`;
+            playerOneTurn = !playerOneTurn;
+            squareClickable[index] = false;
+            stepCount++;
+            if (stepCount === column * row) {
+                gameOver();
+            }
+        }, 1000);   
+    }
+
+
     function emojiSelector() {
         let i = Math.floor(Math.random() * emojiCollection.length);
         let j = Math.floor(Math.random() * emojiCollection[i].length)
