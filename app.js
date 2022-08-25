@@ -12,12 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let squares = document.querySelectorAll('.square');
     const output = document.querySelector('#thirdrow');
     let playerOneTurn = true;
-    let squareClickable = [ ];
+    let squareClickable = [];
+    let squareClickableCopy =[];
     let playerOne = null;
     let playerTwo = null;
     let stepCount = 0;
     let computerNameLevel = [];
-
+    let gameboard = null;
 
     class player {
         constructor(name) {
@@ -25,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             this.score = 0;
         }
     }
+    gameboardInit(8, 8)
     let startclickable = true;
     start.addEventListener('click', function(e) {
         if (startclickable) {
@@ -44,10 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
             output.innerText = `${playerOne.name}'s turn!`;
             gameboard = scanGameBoard(category, 8, 8);
         }
-        playerOneScore.innerText = `${playerOne.name}'s score: ` + '0';
-        playerTwoScore.innerText = `${playerTwo.name}'s score: ` + '0';
-        
+        playerOneScore.innerText = `${playerOne.name}: 0`;
+        playerTwoScore.innerText = `${playerTwo.name}: 0`;   
     })
+
     reset.addEventListener('click', function(e) {
         playerOneTurn = true;
         squareClickable = [ ];
@@ -63,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
         playerTwoName.value = '';
         playerOneScore.style.backgroundColor = 'white'
         playerTwoScore.style.backgroundColor = 'white'
-
     })
 
     function scanGameBoard(category, row, column) {
@@ -81,13 +82,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 gameBoard.push(1);
             } else if (category === 'Cake' && squares[index].innerText === '🎂') {
                 gameBoard.push(1);
-            }else {
+            } else {
                 gameBoard.push(0);
             }
             index++;
         }
         return gameBoard;
     }
+
     function computerPlay(row, column, level) {
         let index = Math.floor(Math.random() * (row * column));
         if ((level === '1' && Math.random() < 0.02) || (level === '2' && Math.random() < 0.04) || 
@@ -96,7 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
             while (!squareClickable[index] || gameboard[index] !== 1) {
                 if (!squareClickable[index]) {
                     gameboard[index] = 0;
-                    console.log("1: " + index);
                 }
                 index = gameboard.indexOf(1)
                 if (index === -1) {
@@ -105,7 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     break;
                 }
-                console.log("2: " + index);  
             } 
         } else {
             while (!squareClickable[index]) {
@@ -113,12 +113,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
         }
+        squareClickableCopy = squareClickable;
+        squareClickable = [];
         setTimeout(function() {
+            squareClickable = squareClickableCopy;
             squares = document.querySelectorAll('.square');
-            squares[index].style.fontSize = '40px';
+            squares[index].style.fontSize = '3vw';
             squares[index].style.backgroundColor = 'green';
             score(category, squares[index].innerText, playerTwo);
-            playerTwoScore.innerText = `${playerTwo.name}'s score: ${playerTwo.score}`;
+            playerTwoScore.innerText = `${playerTwo.name}: ${playerTwo.score}`;
             output.innerText = `${playerOne.name}'s turn!`;
             playerOneTurn = !playerOneTurn;
             squareClickable[index] = false;
@@ -129,13 +132,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);   
     }
 
-
     function emojiSelector() {
         let i = Math.floor(Math.random() * emojiCollection.length);
         let j = Math.floor(Math.random() * emojiCollection[i].length)
         return emojiCollection[i][j];
 
     }
+
     function clickable(row, column) {
         for (let i = 0; i < row * column; i++) {
             squareClickable.push(true);
@@ -151,12 +154,13 @@ document.addEventListener('DOMContentLoaded', () => {
             player.score += 1;
         } else if (category === 'Monkey' && emoji === '🐵') {
             player.score += 1;
-        }else if (category === 'Cake' && emoji === '🎂') {
+        } else if (category === 'Cake' && emoji === '🎂') {
             player.score += 1;
         } else {
             console.log('no point')
         }
     }
+
     function gameOver() {
         if (playerOne.score > playerTwo.score) {
             output.innerText = `Game Over! Congratulation to ${playerOne.name}!`;
@@ -168,7 +172,6 @@ document.addEventListener('DOMContentLoaded', () => {
             output.innerText = `Game Over! It's a draw!`;
         }
     }
-
 
     function gameboardInit(row, column) {
         const gameboard = document.querySelector('#gameboard');
@@ -182,17 +185,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 div.classList.add('square');
                 div.addEventListener('click', function(e) {
                     if (squareClickable[i * column + j] === true) {
-                        e.target.style.fontSize = '40px';
+                        e.target.style.fontSize = '3vw';
                         if (playerOneTurn) {
                             e.target.style.backgroundColor = 'blue';
                             score(category, e.target.innerText, playerOne)
-                            playerOneScore.innerText = `${playerOne.name}'s score: ${playerOne.score}`;
-                            playerTwoScore.innerText = `${playerTwo.name}'s score: ${playerTwo.score}`;
+                            playerOneScore.innerText = `${playerOne.name}: ${playerOne.score}`;
+                            playerTwoScore.innerText = `${playerTwo.name}: ${playerTwo.score}`;
                             output.innerText = `${playerTwo.name}'s turn!`
                         } else {
                             e.target.style.backgroundColor = 'green';
                             score(category, e.target.innerText, playerTwo)
-                            playerTwoScore.innerText = `${playerTwo.name}'s score: ${playerTwo.score}`;
+                            playerTwoScore.innerText = `${playerTwo.name}: ${playerTwo.score}`;
                             output.innerText = `${playerOne.name}'s turn!`
                         }
                         playerOneTurn = !playerOneTurn;
@@ -203,8 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                         if (playerTwo.name === 'Computer') {
                             computerPlay(row, column, computerNameLevel[1]);
-                        }
-                        
+                        } 
                     }   
                 })
                 gameboard.append(div);
