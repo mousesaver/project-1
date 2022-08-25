@@ -20,3 +20,98 @@ h1 {
 .space {
     width: 20px;
 }
+.input {
+    display: flex;
+    flex-direction: row;
+}
+#secondrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px 10px;
+}
+.scoreboard {
+    width: 25vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 3px solid green;
+    border-radius: 10px;  */
+}
+#scoretitle {
+    border: 3px solid green;
+    border-radius: 10px;
+    /* width: 13vw;
+    height: 5vh; */
+    font-size: 2.5vw;
+    background-color: white;
+    padding: 10px;
+    margin: 20px auto;
+    font-family: 'Round sans', sans-serif;
+}
+#playerOneScore {
+    font-size: 1.6vw;
+    color: blue;
+    border: 3px solid blue;
+    border-radius: 10px;
+    padding: 5px 5px;
+    margin: 20px auto;
+    width: 14vw;
+    height: 5vh;
+    background-color: white;
+    font-family: 'Round sans', sans-serif;
+    
+}
+#playerTwoScore {
+    font-size: 1.6vw;
+    color: green;
+    border: 3px solid green;
+    border-radius: 10px;
+    padding: 5px 5px;
+    margin: 20px auto;
+    width: 14vw;
+    height: 5vh;
+    background-color: white;
+    font-family: 'Round sans', sans-serif;
+
+}
+#gameboard {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 33.7vw;
+    height: 33.7vw;
+    border: 3px solid orange;
+    border-radius: 10px;
+
+}
+.square {
+    background-color: rgb(196, 165, 86);
+    height: 4vw;
+    width: 4vw;
+    font-size: 0px;
+    margin: 0.1vw 0.1vw;
+    text-align: center;
+    border-radius: 10px;
+    padding: 0.4vw auto;
+}
+#instruction {
+    width: 25vw;
+    text-align: justify;
+    color:rgb(71, 53, 53);
+    /* border: 3px solid blue;
+    border-radius: 10px; */
+}
+#instruction-title {
+    text-align: center;
+    font-family: 'HelloMissThang', sans-serif;
+    font-weight: bold;
+    font-size: 2vw;
+}
+ul {
+    font-family: 'HelloMissThang', sans-serif;
+    color:rgb(49, 46, 182);
+    font-weight: bold;
+    font-size: 1.3vw;
+}
