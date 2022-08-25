@@ -42,12 +42,15 @@ document.addEventListener('DOMContentLoaded', () => {
             scoreBoard.append(playerTwoScore);
             gameboardInit(8, 8);
             clickable(8, 8);
-            startclickable = false;
             output.innerText = `${playerOne.name}'s turn!`;
             gameboard = scanGameBoard(category, 8, 8);
         }
-        playerOneScore.innerText = `${playerOne.name}: 0`;
-        playerTwoScore.innerText = `${playerTwo.name}: 0`;   
+        if (startclickable) {
+            playerOneScore.innerText = `${playerOne.name}: 0`;
+            playerTwoScore.innerText = `${playerTwo.name}: 0`; 
+            startclickable = false;
+        }
+          
     })
 
     reset.addEventListener('click', function(e) {
