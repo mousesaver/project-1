@@ -2,7 +2,10 @@
 
 ## About the Game
 
-Two players will compete to see who find more treasures. There are many categories to choose from. Once the category is selected, players have to click on squares alternatively to reveal what's hidden inside. If the item is in the right category, the corresponding player will score one point. When all squares have been revealed, the player with higher scores will be the winner and the game is over.
+Let's start the treasure hunt! Two players will compete to see who finds more treasures. There are many categories to choose from. Once a category is selected, players have to click on squares alternatively to reveal what's hidden inside. If the item is in the right category, the corresponding player will score one point. When all squares have been revealed, the player with the higher scores will be the winner and the game is over.
+
+## Game link
+https://mousesaver.github.io/project-1/
 
 ## Tech Being Used
 
@@ -25,7 +28,14 @@ Two players will compete to see who find more treasures. There are many categori
 
 ## Stretch Goals
 
-- Add a player number dropdown menu to select one player or two players
+- Have a choice to select one player or two players
 - Create a computer player when one-player mode is selected
-- Add a level dropdwon menu to expand the gameboard
+- Add a difficulty choice for the computer player
 - Add more categories
+
+## Post-project reflection
+
+- I have made the computer player smart on different levels. To make the game better, the layout can be better designed and proper sound can be added.
+
+## Source used
+The fonts are from https://www.cdnfonts.com/
