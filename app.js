@@ -51,8 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (startclickable) {
             playerOneScore.innerText = `${playerOne.name}: 0`;
             playerTwoScore.innerText = `${playerTwo.name}: 0`; 
-            playerOneName.value = '';
-            playerTwoName.value = '';
+            playerOneName.value = "";
+            playerTwoName.value = "";
             startclickable = false;
         }
           
@@ -65,10 +65,10 @@ document.addEventListener('DOMContentLoaded', () => {
         playerTwo = null;
         stepCount = 0;
         gameboardInit(8, 8)
-        startclickable = true;
-        playerOneScore.innerText = ' ';
-        playerTwoScore.innerText = ' ';
-        output.innerText = 'Follow instruction and start the game!'
+        startclickable = false;
+        playerOneScore.innerText = '';
+        playerTwoScore.innerText = '';
+        output.innerText = 'Follow the instruction and start the game!'
         playerOneName.value = '';
         playerTwoName.value = '';
         playerOneScore.style.backgroundColor = 'white'
