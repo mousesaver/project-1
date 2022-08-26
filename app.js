@@ -107,13 +107,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!squareClickable[index]) {
                     gameboard[index] = 0;
                 }
-                index = gameboard.indexOf(1)
-                if (index === -1) {
+                if (gameboard.indexOf(1) === -1) {
                     while (!squareClickable[index]) {
                         index = Math.floor(Math.random() * (row * column));
                     }
                     break;
                 }
+                index = Math.floor(Math.random() * (row * column));
             } 
         } else {
             while (!squareClickable[index]) {
