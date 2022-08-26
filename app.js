@@ -27,8 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     gameboardInit(8, 8)
-    let startclickable = true;
+    let startclickable = false;
     start.addEventListener('click', function(e) {
+        if (playerOneName.value !== "" && playerTwoName.value !== "") {
+            startclickable = true;
+        }
         if (startclickable) {
             category = document.querySelector('#category').value;
             playerOne = new player(playerOneName.value);
@@ -48,6 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (startclickable) {
             playerOneScore.innerText = `${playerOne.name}: 0`;
             playerTwoScore.innerText = `${playerTwo.name}: 0`; 
+            playerOneName.value = '';
+            playerTwoName.value = '';
             startclickable = false;
         }
           
